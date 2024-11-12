@@ -279,3 +279,15 @@ body {
   color: #aaa;
   margin-bottom: 0;
 }
+
+form{
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.form-group {
+  width: 100%; /* Ou você pode limitar a largura se quiser */
+  max-width: 400px; /* Exemplo de limite para não ficar muito largo */
+}

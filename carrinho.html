@@ -1,0 +1,129 @@
+
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header class="header" id="header">
+      <div class="logo" id="logo">
+        <img
+          src="https://www.eventim.com.br/rljs/img/logo-eventim.svg"
+          alt="Logo"
+          id="logo-img"
+        />
+      </div>
+      <nav id="navbar">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="suporte.html">Suporte</a></li>
+          <li><a href="ingressos.html">Ingressos</a></li>
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="carrinho.html">Carrinho</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <!-- Conteúdo Principal -->
+    <div class="container mt-5 pt-5">
+      <h1 class="text-center">Carrinho de Compras</h1>
+      <div id="cart-items" class="row justify-content-center"></div>
+      <div class="text-center mt-4">
+        <button class="btn btn-primary" onclick="checkout()">Finalizar Compra</button>
+      </div>
+    </div>
+  
+    <!-- Rodapé -->
+    <footer class="footer-basic">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Termos</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+      </ul>
+      <p class="copyright">Company Name © 2024</p>
+    </footer>
+  
+    <script src="app.js"></script>
+    <script>
+    // Função para exibir os itens do carrinho
+function displayCart() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Se não houver itens no carrinho, exibe uma mensagem
+  if (cart.length === 0) {
+    document.getElementById("cart-items").innerHTML = "<p class='text-center'>Seu carrinho está vazio.</p>";
+    return;
+  }
+
+  // Cria o HTML para cada item do carrinho
+  let cartHTML = '';
+  cart.forEach(item => {
+    cartHTML += `
+      <div class="col-md-3">
+        <div class="card-sl">
+          <div class="card-image">
+            <img src="${item.image}" alt="${item.title}">
+          </div>
+          <div class="card-heading">
+            ${item.title}
+          </div>
+          <div class="card-text">
+            <p>${item.description}</p>
+            <p>Preço: R$ ${item.price}</p>
+          </div>
+          <div class="card-action" onclick="removeFromCart(${item.id})">
+            <i class="icon ion-trash-a"></i>
+          </div>
+          <div class="card-button">
+            <a href="evento.html?id=${item.id}" class="btn">Ver Detalhes</a>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  // Exibe o conteúdo do carrinho na página
+  document.getElementById("cart-items").innerHTML = cartHTML;
+}
+
+// Função para remover um item do carrinho
+function removeFromCart(itemId) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const updatedCart = cart.filter(item => item.id !== itemId);
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
+  displayCart();  // Atualiza a visualização após remover o item
+}
+
+// Função de checkout
+// Função de checkout
+function checkout() {
+  // Exibe o alerta de finalização de compra
+  alert("Compra finalizada!");
+
+  // Redireciona para a página ingressos.htm após o alerta
+  window.location.href = "ingressos.html";
+}
+
+// Exibe os itens assim que a página for carregada
+window.onload = displayCart;
+
+  </script>
+  </body>
+  </html>
+  
+  
