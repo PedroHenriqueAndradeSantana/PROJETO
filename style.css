@@ -1,80 +1,281 @@
 /* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo do cabeçalho */
+.header {
+  padding: 20px 5%; /* Define o padding lateral como uma porcentagem da largura da tela */
+  display: flex;
+  justify-content: space-between; /* Alinha o logo à esquerda e os links à direita */
+  align-items: center;
+  background-color: #024ddf;
+  width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */
+  position: fixed; /* Fixa o cabeçalho no topo */
+  top: 0; /* Garante que ele fique no topo */
+  left: 0; /* Garante que ele ocupe toda a largura da tela */
+  z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+
+/* Estilo para os links de navegação */
+.nav-links {
+  list-style: none;
+  display: flex;
+  padding-right: 10px; /* Remove o padding lateral */
+  margin: 0; /* Remove margens adicionais */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white; /* Ajusta a cor para branco para contraste com o fundo azul */
+  font-size: 18px;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.c-item {
+  height: 550px;
+}
+
+.c-img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.circle-button {
+  width: 122.26px;
+  height: 121.1px;
+  border-radius: 50px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  transition: box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.circle-button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.circle-button img {
+  width: 50px;
+  height: 50px;
+}
+
+.btn-text {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card-sl {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
+}
+
+.card-image img {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 8px 8px 0px 0;
+}
+
+.card-action {
+  position: relative;
+  float: right;
+  margin-top: -25px;
+  margin-right: 20px;
+  z-index: 2;
+  color: #e26d5c;
+  background: #fff;
+  border-radius: 100%;
+  padding: 15px;
+  font-size: 15px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-action:hover {
+  color: #fff;
+  background: #e26d5c;
+}
+
+.card-heading {
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  padding: 10px 15px;
+}
+
+.card-text {
+  padding: 10px 15px;
+  background: #fff;
+  font-size: 14px;
+  color: #636262;
+}
+
+.card-button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100%;
+  background-color: #1f487e;
+  color: #fff;
+  border-radius: 0 0 8px 8px;
+  transition: all 0.3s ease;
+}
+
+.card-button:hover {
+  text-decoration: none;
+  background-color: #1d3461;
+  color: #fff;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
   }
-  
-  /* Estilo do cabeçalho */
-  .header {
-    padding: 20px 5%; /* Define o padding lateral como uma porcentagem da largura da tela */
-    display: flex;
-    justify-content: space-between; /* Alinha o logo à esquerda e os links à direita */
-    align-items: center;
-    background-color: #024ddf;
-    width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */
-    position: fixed; /* Fixa o cabeçalho no topo */
-    top: 0; /* Garante que ele fique no topo */
-    left: 0; /* Garante que ele ocupe toda a largura da tela */
-    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(90, 153, 212, 0.3); /* Adiciona um brilho para reforçar o efeito */
   }
-  
-  /* Estilo para os links de navegação */
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0); /* Remove o brilho */
+  }
+}
+
+/* Adicione no seu arquivo style.css ou no <style> diretamente */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1; /* Garante que o conteúdo ocupe o máximo possível de altura */
+}
+
+.containerl {
+  min-height: 100vh; /* Altura mínima da página para garantir que o footer fique no final */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsividade para os cards */
+@media (max-width: 768px) {
+  .card-sl {
+    margin-bottom: 20px;
+  }
+
+  .col-md-3 {
+    flex: 0 0 100%; /* Cards ocupam toda a largura em telas pequenas */
+  }
+
   .nav-links {
-    list-style: none;
-    display: flex;
-    padding-right: 10px; /* Remove o padding lateral */
-    margin: 0; /* Remove margens adicionais */
+    flex-direction: column; /* Coloca os links em uma coluna */
+    align-items: center;
+    padding-top: 20px;
   }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: white; /* Ajusta a cor para branco para contraste com o fundo azul */
-    font-size: 18px;
-  }
-  
+
   .nav-links li {
-    margin-left: 30px;
+    margin-left: 0;
+    margin-top: 10px;
   }
-  
-  .nav-links a:hover {
-    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 15px 5%; /* Menos padding em telas muito pequenas */
   }
-  .c-item {
-      height: 550px;
-    }
-    
-    .c-img {
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.6);
-    }
-  
-    .circle-button {
-      width: 122.26px;
-      height: 121.1px;
-      border-radius: 50px;
-      background-color: #f8f9fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 20px;
-      transition: box-shadow 0.3s;
-      text-decoration: none;
-      color: inherit;
+
+  .nav-links a {
+    font-size: 16px;
   }
-  
-  .circle-button:hover {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .circle-button img {
-      width: 50px;
-      height: 50px;
-  }
-  
-  .btn-text {
-      font-size: 14px;
-      margin-top: 10px;
-      text-align: center;
-  }
+}
+
+.footer-basic {
+  padding: 40px 0;
+  background-color: #ffffff;
+  color: #4b4c4d;
+}
+
+.footer-basic ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.footer-basic li {
+  padding: 0 10px;
+}
+
+.footer-basic ul a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity: 1;
+}
+
+.footer-basic .social {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.footer-basic .social > a {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin: 0 8px;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity: 0.9;
+}
+
+.footer-basic .copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 0;
+}
