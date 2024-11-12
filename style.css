@@ -1,0 +1,80 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo do cabeçalho */
+  .header {
+    padding: 20px 5%; /* Define o padding lateral como uma porcentagem da largura da tela */
+    display: flex;
+    justify-content: space-between; /* Alinha o logo à esquerda e os links à direita */
+    align-items: center;
+    background-color: #024ddf;
+    width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */
+    position: fixed; /* Fixa o cabeçalho no topo */
+    top: 0; /* Garante que ele fique no topo */
+    left: 0; /* Garante que ele ocupe toda a largura da tela */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+  }
+  
+  /* Estilo para os links de navegação */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    padding-right: 10px; /* Remove o padding lateral */
+    margin: 0; /* Remove margens adicionais */
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white; /* Ajusta a cor para branco para contraste com o fundo azul */
+    font-size: 18px;
+  }
+  
+  .nav-links li {
+    margin-left: 30px;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  .c-item {
+      height: 550px;
+    }
+    
+    .c-img {
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+  
+    .circle-button {
+      width: 122.26px;
+      height: 121.1px;
+      border-radius: 50px;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+      transition: box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+  }
+  
+  .circle-button:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .circle-button img {
+      width: 50px;
+      height: 50px;
+  }
+  
+  .btn-text {
+      font-size: 14px;
+      margin-top: 10px;
+      text-align: center;
+  }
